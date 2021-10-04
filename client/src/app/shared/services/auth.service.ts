@@ -40,6 +40,7 @@ export class AuthService {
       tap((user: User) => {
         if (user) {
           this.user$.next(user);
+          this.isLoggedin$.next(true);
         }
       })
     );
