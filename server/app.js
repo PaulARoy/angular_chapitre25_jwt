@@ -13,16 +13,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
-mongoose.connect(
-  'mongodb://localhost:27017/dymajwt?readPreference=primary&appname=MongoDB%20Compass&ssl=false',
-  (error) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Connexion opened to mongodb!');
-    }
-  }
-);
+mongoose
+  .connect(
+    'mongodb://localhost:27017/dymajwt?readPreference=primary&appname=MongoDB%20Compass&ssl=false'
+  )
+  .then((client) => {
+    console.log('Connected to MongoDB');
+    return client;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(routes);
 app.get('*', (req, res) => {
