@@ -4,24 +4,24 @@ import { ConnexionComponent } from './auth/connexion/connexion.component';
 import { InscriptionComponent } from './auth/inscription/inscription.component';
 import { HomeComponent } from './home/home.component';
 import { ProfilComponent } from './profil/profil.component';
-import { AuthGuard } from './shared/guards/auth.guard';
-import { DataUserGuard } from './shared/guards/data-user.guard';
+import { authGuard } from './shared/guards/auth.guard';
+import { dataUserGuard } from './shared/guards/data-user.guard';
 
 const routes: Routes = [
-  { path: '', canActivate: [DataUserGuard], component: HomeComponent },
+  { path: '', canActivate: [dataUserGuard], component: HomeComponent },
   {
     path: 'connexion',
-    canActivate: [DataUserGuard],
+    canActivate: [dataUserGuard],
     component: ConnexionComponent,
   },
   {
     path: 'inscription',
-    canActivate: [DataUserGuard],
+    canActivate: [dataUserGuard],
     component: InscriptionComponent,
   },
   {
     path: 'profil',
-    canActivate: [DataUserGuard, AuthGuard],
+    canActivate: [dataUserGuard, authGuard],
     component: ProfilComponent,
   },
 ];
