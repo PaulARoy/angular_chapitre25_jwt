@@ -1,5 +1,6 @@
-import { createReducer } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { User } from '../interfaces/user.interface';
+import * as AuthActions from './auth.actions';
 
 export interface AuthState {
   user: User | null;
@@ -15,4 +16,23 @@ export const AUTH_INITIAL_STATE: AuthState = {
   error: null,
 };
 
-export const authReducer = createReducer(AUTH_INITIAL_STATE);
+export const authReducer = createReducer(
+  AUTH_INITIAL_STATE,
+  on(
+    AuthActions.fetchCurrentUserSuccessAction,
+    AuthActions.connexionSuccessAction,
+    (state: AuthState, { user }: { user: User | null }): AuthState => {
+      return { ...state, user: user, isLoggedIn: true, error: null };
+    }
+  ),
+  on(
+    AuthActions.inscriptionErrorAction,
+    AuthActions.connexionErrorAction,
+    (state: AuthState, { error }: { error: string }): AuthState => {
+      return { ...state, error: error };
+    }
+  ),
+  on(AuthActions.LogoutSuccessAction, (state: AuthState): AuthState => {
+    return { ...state, user: null, isLoggedIn: false, error: null };
+  })
+);
