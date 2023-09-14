@@ -22,7 +22,7 @@ export const authReducer = createReducer(
     AuthActions.fetchCurrentUserSuccessAction,
     AuthActions.connexionSuccessAction,
     (state: AuthState, { user }: { user: User | null }): AuthState => {
-      return { ...state, user: user, isLoggedIn: true, error: null };
+      return { ...state, user: user, isLoggedIn: user != null, error: null };
     }
   ),
   on(

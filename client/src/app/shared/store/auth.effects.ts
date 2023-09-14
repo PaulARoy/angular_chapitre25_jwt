@@ -49,7 +49,10 @@ export class AuthEffects {
       ofType(AuthActions.tryConnexionAction),
       switchMap(({ credentials }: { credentials: Credentials }) =>
         this.authService.connexion(credentials).pipe(
-          map((user: User) => AuthActions.connexionSuccessAction({ user })),
+          map((user: User) => {
+            this.router.navigateByUrl('/');
+            return AuthActions.connexionSuccessAction({ user });
+          }),
           catchError((err) =>
             of(
               AuthActions.connexionErrorAction({
@@ -67,7 +70,10 @@ export class AuthEffects {
       ofType(AuthActions.tryLogoutAction),
       switchMap(() =>
         this.authService.logout().pipe(
-          map(() => AuthActions.logoutSuccessAction()),
+          map(() => {
+            this.router.navigateByUrl('/');
+            return AuthActions.logoutSuccessAction();
+          }),
           catchError(() => EMPTY)
         )
       )
