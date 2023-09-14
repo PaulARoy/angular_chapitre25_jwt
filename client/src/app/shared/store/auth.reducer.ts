@@ -32,7 +32,7 @@ export const authReducer = createReducer(
       return { ...state, error: error };
     }
   ),
-  on(AuthActions.LogoutSuccessAction, (state: AuthState): AuthState => {
+  on(AuthActions.logoutSuccessAction, (state: AuthState): AuthState => {
     return { ...state, user: null, isLoggedIn: false, error: null };
   })
 );

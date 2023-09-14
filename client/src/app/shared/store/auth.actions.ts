@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { User } from '../interfaces/user.interface';
+import { Credentials, User } from '../interfaces/user.interface';
 
 export const tryFetchCurrentUserAction = createAction(
   '[auth] try fetch current user'
@@ -20,7 +20,7 @@ export const inscriptionErrorAction = createAction(
 
 export const tryConnexionAction = createAction(
   '[auth] try connexion',
-  props<{ user: User }>()
+  props<{ credentials: Credentials }>()
 );
 export const connexionSuccessAction = createAction(
   '[auth] connexion success',
@@ -32,4 +32,4 @@ export const connexionErrorAction = createAction(
 );
 
 export const tryLogoutAction = createAction('[auth] try logout');
-export const LogoutSuccessAction = createAction('[auth] logout success');
+export const logoutSuccessAction = createAction('[auth] logout success');
