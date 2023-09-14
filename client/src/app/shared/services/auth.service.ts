@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
-import { User } from '../interfaces/user.interface';
+import { Credentials, User } from '../interfaces/user.interface';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -32,10 +32,7 @@ export class AuthService {
     return this.http.post('/api/user', user);
   }
 
-  public connexion(credentials: {
-    email: string;
-    password: string;
-  }): Observable<User> {
+  public connexion(credentials: Credentials): Observable<User> {
     return this.http.post<User>('/api/auth/connexion', credentials).pipe(
       tap((user: User) => {
         if (user) {

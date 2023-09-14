@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../shared/interfaces/user.interface';
-import { AuthService } from '../shared/services/auth.service';
+import { User } from '../../shared/interfaces/user.interface';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-profil',
