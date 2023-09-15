@@ -2,7 +2,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-photos-searchbar',
-  templateUrl: './photos-searchbar.component.html',
+  template: `
+    <mat-card>
+      <input
+        type="text"
+        [(ngModel)]="inputQuery"
+        (input)="search.emit(inputQuery)"
+      />
+    </mat-card>
+  `,
   styleUrls: ['./photos-searchbar.component.scss'],
 })
 export class PhotosSearchbarComponent {

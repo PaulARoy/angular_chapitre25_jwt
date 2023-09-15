@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import PhotosListComponent from './photos-list.component';
+import { PhotosListComponent } from './photos-list.component';
 
 describe('PhotosListComponent', () => {
   let component: PhotosListComponent;
