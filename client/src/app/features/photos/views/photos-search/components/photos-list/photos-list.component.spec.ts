@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotosListComponent } from './photos-list.component';
+import PhotosListComponent from './photos-list.component';
 
 describe('PhotosListComponent', () => {
   let component: PhotosListComponent;
@@ -8,7 +8,7 @@ describe('PhotosListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PhotosListComponent]
+      declarations: [PhotosListComponent],
     });
     fixture = TestBed.createComponent(PhotosListComponent);
     component = fixture.componentInstance;

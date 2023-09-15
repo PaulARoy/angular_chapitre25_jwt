@@ -1,4 +1,4 @@
 <div class="container">
-  <app-photos-searchbar></app-photos-searchbar>
-  <app-photos-list></app-photos-list>
+  <app-photos-searchbar (search)="searchPhoto($event)"></app-photos-searchbar>
+  <app-photos-list [photos]="photos$ | async"></app-photos-list>
 </div>
