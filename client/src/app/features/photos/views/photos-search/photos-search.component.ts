@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Photo } from '../../shared/interfaces/photo.interface';
-import { selectPhotoList } from '../../shared/store/photo.selectors';
+import {
+  selectLoading,
+  selectPhotoList,
+} from '../../shared/store/photo.selectors';
 import { trySearchPhotosAction } from '../../shared/store/photo.actions';
 
 @Component({
@@ -12,6 +15,7 @@ import { trySearchPhotosAction } from '../../shared/store/photo.actions';
 })
 export class PhotosSearchComponent {
   public photos$: Observable<Photo[]> = this.store.select(selectPhotoList);
+  public loading$ = this.store.select(selectLoading);
 
   constructor(private store: Store) {}
 

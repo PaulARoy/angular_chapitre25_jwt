@@ -9,3 +9,5 @@ export const searchPhotosSuccessAction = createAction(
   '[photos] search photo success',
   props<{ photos: Photo[] }>()
 );
+
+export const loadPhotosAction = createAction('[photos] load photos');

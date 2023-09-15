@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Photo } from '../interfaces/photo.interface';
-import * as PhotosACtions from './photo.actions';
+import * as PhotosActions from './photo.actions';
 
 export interface PhotosState {
   photos: Photo[];
@@ -16,8 +16,11 @@ export const photosReducerKey = '[reducer] photos';
 
 export const photosReducer = createReducer(
   PHOTOS_INITIAL_STATE,
+  on(PhotosActions.loadPhotosAction, (state: PhotosState) => {
+    return { ...state, photos: [], loading: true };
+  }),
   on(
-    PhotosACtions.searchPhotosSuccessAction,
+    PhotosActions.searchPhotosSuccessAction,
     (state: PhotosState, { photos }: { photos: Photo[] }): PhotosState => {
       return { ...state, photos, loading: false };
     }
