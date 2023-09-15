@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfilComponent } from './views/profil/profil.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ConnexionComponent } from './views/connexion/connexion.component';
-import { HomeComponent } from './views/home/home.component';
 import { InscriptionComponent } from './views/inscription/inscription.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -24,7 +23,6 @@ import { AuthEffects } from './shared/store/auth.effects';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
     ConnexionComponent,
     InscriptionComponent,
     ProfilComponent,

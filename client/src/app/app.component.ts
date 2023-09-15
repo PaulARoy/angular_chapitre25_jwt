@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from './shared/services/auth.service';
 import { Store } from '@ngrx/store';
 import { selectIsLoggedIn } from './shared/store/auth.selectors';
 import { tryLogoutAction } from './shared/store/auth.actions';
